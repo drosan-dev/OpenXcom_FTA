@@ -37,9 +37,9 @@ jobs:
     - name: Install dependencies
       run: sudo apt install git cmake build-essential libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-gfx1.2-dev zlib1g-dev
     - name: clone yaml-cpp library
-      run: git clone https://github.com/jbeder/yaml-cpp ${{github.workspace}} 
+      run: git clone https://github.com/jbeder/yaml-cpp ${{github.workspace}}/yaml-cpp
     - name: Configure yaml-cpp CMake
-      run: cmake -B ${{github.workspace}}/yaml-build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DYAML_CPP_BUILD_CONTRIB=OFF -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BUILD_TOOLS=OFF
+      run: cmake -B ${{github.workspace}}/yaml-cpp/yaml-build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DYAML_CPP_BUILD_CONTRIB=OFF -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BUILD_TOOLS=OFF
     - name: Build yaml-cpp
       run: sudo make install
       
