@@ -34,7 +34,7 @@ jobs:
         key: ${{ runner.OS }}-yaml-cpp-cache
         
     - name: Install dependencies
-      run: apt install git cmake build-essential libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-gfx1.2-dev zlib1g-dev
+      run: sudo apt install git cmake build-essential libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-gfx1.2-dev zlib1g-dev
     - name: clone yaml-cpp library
       run: git clone https://github.com/jbeder/yaml-cpp ${{github.workspace}} 
     - name: Configure yaml-cpp CMake
