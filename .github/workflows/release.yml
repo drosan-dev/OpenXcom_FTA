@@ -42,6 +42,7 @@ jobs:
       working-directory: ${{github.workspace}}/yaml-cpp
       run: cmake -B ${{github.workspace}}/yaml-cpp/yaml-build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DYAML_CPP_BUILD_CONTRIB=OFF -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BUILD_TOOLS=OFF
     - name: Build yaml-cpp
+      working-directory: ${{github.workspace}}/yaml-cpp/yaml-build
       run: sudo make install
       
 
