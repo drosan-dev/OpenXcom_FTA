@@ -27,6 +27,14 @@ jobs:
       uses: bruceadams/get-release@v1.2.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        
+    - name: ls
+      working-directory: ${{github.workspace}}
+      run: ls
+      
+    - name: pwd
+      working-directory: ${{github.workspace}}
+      run: pwd
       
 
     - name: Configure CMake
