@@ -16,7 +16,7 @@ jobs:
     # well on Windows or Mac.  You can convert this to a matrix build if you need
     # cross-platform coverage.
     # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
-    runs-on: ubuntu-latest
+    runs-on: antonvl/openxcom_fta
 
     steps:
     - uses: actions/checkout@v2
@@ -26,30 +26,6 @@ jobs:
       uses: bruceadams/get-release@v1.2.2
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    
-    - name: Cache dependencies
-      uses: actions/cache@v1
-      with:
-        path: .
-        key: ${{ runner.OS }}-dependencies-cache
-    
-    - name: Cache yaml-cpp
-      uses: actions/cache@v1
-      with:
-        path: /usr/local
-        key: ${{ runner.OS }}-yaml-cpp-cache
-    - name: update dependencies
-      run: sudo apt-get update
-    - name: Install dependencies
-      run: sudo apt install git cmake build-essential libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-gfx1.2-dev zlib1g-dev
-    - name: clone yaml-cpp library
-      run: git clone https://github.com/jbeder/yaml-cpp ${{github.workspace}}/yaml-cpp
-    - name: Configure yaml-cpp CMake
-      working-directory: ${{github.workspace}}/yaml-cpp
-      run: cmake -B ${{github.workspace}}/yaml-cpp/yaml-build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DYAML_CPP_BUILD_CONTRIB=OFF -DYAML_CPP_BUILD_TESTS=OFF -DYAML_CPP_BUILD_TOOLS=OFF
-    - name: Build yaml-cpp
-      working-directory: ${{github.workspace}}/yaml-cpp/yaml-build
-      run: sudo make install
       
 
     - name: Configure CMake
