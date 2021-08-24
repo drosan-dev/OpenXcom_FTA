@@ -28,14 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         
-    - name: ls
-      working-directory: ${{github.workspace}}
-      run: ls
-      
-    - name: pwd
-      working-directory: ${{github.workspace}}
-      run: pwd
-      
+    - name: mkdir
+      run: mkdir build      
 
     - name: Configure CMake
       working-directory: ${{github.workspace}}
